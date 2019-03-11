@@ -1,0 +1,14 @@
+curl http://127.0.0.1:5000/
+
+curl http://127.0.0.1:5000/migration-state
+curl http://127.0.0.1:5000/selected-mountpoints
+
+curl -H "Content-Type: application/json" -d '{"ip":"10.92.248.123", "username":"lucky", "password":"1234", "domain":"ASIA", "storage_list":[{"name":"C:\\","size":345678}, {"name":"D:\\","size":783456}]}' http://127.0.0.1:5000/register-source
+curl -H "Content-Type: application/json" -d '{"ip":"221.122.34.23", "username":"lucky_azure", "password":"abcd", "domain":"AMER", "cloud_type":"azure"}' http://127.0.0.1:5000/register-target
+
+curl http://127.0.0.1:5000/start-migration
+
+curl -H "Content-Type: application/json" -d '{"name":"C:\\", "size":34827986729}' http://127.0.0.1:5000/add-mountpoint
+
+curl http://127.0.0.1:5000/start-migration
+curl http://127.0.0.1:5000/migration-state
